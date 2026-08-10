@@ -1,0 +1,31 @@
+# EC2 SSH
+ssh -i "aws_task.pem" ec2-user@<your-ip>
+
+# User & Group
+sudo groupadd devops
+sudo useradd -m student
+sudo usermod -aG devops student
+
+# Permissions
+sudo mkdir /project
+sudo chown student:devops /project
+sudo chmod 770 /project
+
+# Process
+sleep 300 &
+ps aux | grep sleep
+kill <pid>
+
+# Nginx
+sudo dnf install nginx -y
+sudo systemctl start nginx
+
+# Logs
+journalctl
+cd /var/log/nginx
+
+# Cron
+crontab -e
+
+# SSH Security
+sudo nano /etc/ssh/sshd_config

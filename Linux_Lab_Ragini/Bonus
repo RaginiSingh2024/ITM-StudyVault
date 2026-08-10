@@ -1,0 +1,25 @@
+# BONUS TASK
+
+## 1. Created another user
+sudo useradd testuser
+
+## 2. Restricted SSH access
+Edited SSH config file:
+sudo nano /etc/ssh/sshd_config
+
+Added:
+AllowUsers student
+
+Restarted SSH:
+sudo systemctl restart sshd
+
+## 3. Result
+- Only 'student' user can login via SSH
+- 'testuser' and 'ec2-user' access is blocked
+
+## 4. Cleanup Cron Job (optional)
+Created cron job to clean test file:
+crontab -e
+
+Added:
+* * * * * rm -f /home/ec2-user/test.txt
